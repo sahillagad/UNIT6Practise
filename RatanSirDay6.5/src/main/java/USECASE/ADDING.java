@@ -1,0 +1,71 @@
+package USECASE;
+
+import java.util.Scanner;
+
+import javax.persistence.EntityManager;
+
+import Bean.Phone;
+import Bean.User;
+import Utility.EMUtility;
+
+public class ADDING {
+
+	public static void main(String[] args) {
+		EntityManager em=EMUtility.provideEntityManager();
+		
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter User Name");
+		String name= sc.next();
+		
+		
+		System.out.println("Enter User Location");
+		String location=sc.next();
+		
+     
+		User user=new User();
+		user.setName(name);
+		user.setLocation(location);
+		
+		System.out.println("You Want Add Phone Number");
+		String s= sc.next();
+		
+		if(s.equalsIgnoreCase("Y")) {
+		while(true) {
+		
+			System.out.println("Enter serviceProvier name");
+            String spName=sc.next();
+            
+            System.out.println("Enter Phone Number");
+            String PNumber=sc.next();
+			 
+			
+            Phone phone=new Phone(spName, PNumber);
+            
+			user.getPhones().add(phone);
+		
+			System.out.println("You Want Add one more Phone Number");
+			String s1= sc.next();
+			
+			if(s1.equalsIgnoreCase("N")) {
+			
+				break;
+			}
+			}
+			
+		}
+		
+		else {
+			
+			System.out.println("ThanK you...");
+		}
+	    
+		em.getTransaction().begin();
+		
+		em.persist(user);
+		
+		
+		em.getTransaction().commit();
+		
+	}
+}

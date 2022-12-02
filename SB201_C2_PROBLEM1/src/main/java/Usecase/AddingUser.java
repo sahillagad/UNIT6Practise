@@ -1,0 +1,94 @@
+package Usecase;
+
+import javax.persistence.EntityManager;
+
+import Entity.PhoneNumber;
+import Entity.PhoneType;
+import Entity.User;
+import Utility.EMUtility;
+
+public class AddingUser {
+  
+	            public static void main(String[] args) {
+					
+	            	EntityManager em=EMUtility.provideEntityManager();
+	            	
+	            	User user=new User();
+	            	user.setUserName("Prateek");
+	            	user.setEmailId("Prateek@gmail.com");
+	                user.setUserId(1);
+	            	
+	            	
+	            	PhoneNumber number=new PhoneNumber();
+	            	number.setPhoneNumber("987654321");
+	            	number.setPhoneType(PhoneType.Home);
+	            	number.setUserId(1);
+                   	            	
+	            	
+	              	PhoneNumber number1=new PhoneNumber();
+	            	number1.setPhoneNumber("887654321");
+	            	number1.setPhoneType(PhoneType.Landline);
+	            	number1.setUserId(1);
+	            	
+	            	
+	            	PhoneNumber number2=new PhoneNumber();
+	            	number2.setPhoneNumber("777654321");
+	            	number2.setPhoneType(PhoneType.office);
+	            	number2.setUserId(1);
+	            	
+	            	user.getPhoneNumbers().add(number);
+	              	user.getPhoneNumbers().add(number1);
+	              	user.getPhoneNumbers().add(number2);
+	            	
+	            
+	            	
+	               	
+	            	User user1=new User();
+	            	user1.setUserName("Nrupul");
+	            	user1.setEmailId("Nrupul@gmail.com");
+	                user1.setUserId(2);
+	            	
+	            	
+	            	PhoneNumber n1=new PhoneNumber();
+	            	n1.setPhoneNumber("666654321");
+	            	n1.setPhoneType(PhoneType.Home);
+	            	n1.setUserId(2);
+                   	            	
+	            	
+	              	PhoneNumber n2=new PhoneNumber();
+	            	n2.setPhoneNumber("954654321");
+	            	n2.setPhoneType(PhoneType.Landline);
+	            	n2.setUserId(2);
+	            	
+	            	
+	            	PhoneNumber n3=new PhoneNumber();
+	            	n3.setPhoneNumber("912654321");
+	            	n3.setPhoneType(PhoneType.office);
+	                n3.setUserId(2);
+	            	
+	                user1.getPhoneNumbers().add(n3);
+	                user1.getPhoneNumbers().add(n1);
+	                user1.getPhoneNumbers().add(n2);
+	            	
+	            	
+	            	
+	            	em.getTransaction().begin();
+	 
+	               	
+	            	em.persist(number);
+	            	em.persist(number1);
+                   em.persist(number2);	            	
+	            	em.persist(user);
+                   
+	            	
+	            	em.persist(n1);
+	            	em.persist(n2);
+	            	em.persist(n3);
+	            	em.persist(user1);
+	 
+	            	
+	            
+	            	em.getTransaction().commit();
+	            	
+				}	      
+}

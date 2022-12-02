@@ -1,0 +1,12 @@
+package Dao;
+
+import Entity.Course;
+
+public interface AdminDao {
+
+
+	public void addCourse(Course course);
+	public void getStudent(int roll_no);
+	public void getCourse(int course_id);
+
+}

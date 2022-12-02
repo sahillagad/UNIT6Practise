@@ -1,0 +1,84 @@
+package Usecase;
+
+import java.util.List;
+import java.util.Scanner;
+
+import javax.persistence.EntityManager;
+
+import Bean.Address;
+import Bean.Student;
+import Utility.EMUtility;
+
+public class Main1 {
+
+	public static void main(String[] args) {
+		
+	
+		EntityManager em=EMUtility.ProvideEntityManager();
+		
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter Student Name");
+	 	String name= sc.next();
+		
+		System.out.println("Enter Student Marks");
+		int marks=sc.nextInt();
+		
+		Student student=new Student();
+		student.setName(name);
+        student.setMarks(marks);
+       
+        
+        
+     
+		
+		while(true) {
+			
+			
+			System.out.println("Enter City");
+			String city= sc.next();
+			
+			
+			System.out.println("Enter State");
+			String state=sc.next();
+			
+			
+			System.out.println("Enter Pincode");
+			String pincode=sc.next();
+			
+			System.out.println("Enter Address Type");
+			String lable=sc.next();
+			
+			Address address=new Address(city, state, pincode, lable);
+			 student.getList().add(address);
+		
+		 
+			 
+			 System.out.println("you want TO exit..(N/Y)");
+			 String resul=sc.next();
+			 
+			  if(resul.equalsIgnoreCase("Y")) {
+				  break;
+			  }
+			 
+		}
+		
+		
+		em.getTransaction().begin();
+		
+		
+		em.persist(student);
+		
+		
+		em.getTransaction().commit();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

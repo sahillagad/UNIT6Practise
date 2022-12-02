@@ -1,0 +1,181 @@
+package Dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import Bean.College;
+import Bean.Student;
+import Exception.CollegeException;
+import Exception.StudentException;
+import Utility.EMUtility;
+
+public class AdminDaoImpl implements AdminDao{
+
+	@Override
+	public String insertStudent(Student student) throws StudentException {
+	String result="Student is Not Insert Due To Some Error...";
+		EntityManager em=	EMUtility.provideEntityManager();
+	 
+		 String jpql="select s from Student s where s.studentName=?1 AND s.mobileNumber=?2 AND s.email=?3";
+		 Query query=em.createQuery(jpql);
+	    query.setParameter(1, student.getStudentName());
+	    query.setParameter(2, student.getMobileNumber());
+	    query.setParameter(3, student.getEmail());
+	    
+	    try {
+		    Student student2= (Student)query.getSingleResult();
+	          result=("Student Already Present"); 
+	    
+		} catch (Exception e) {
+		
+			em.getTransaction().begin();
+			em.persist(student);
+			result="Student insert Sucessfully....";
+			em.getTransaction().commit();
+		    
+		 }
+	    em.close();
+		return result;
+	}
+
+	@Override
+	public Student getStudentById(int roll) throws StudentException {
+	         Student student=null;
+	         
+	         EntityManager em= EMUtility.provideEntityManager();
+	         student= em.find(Student.class,roll);
+		
+	         if(student==null) {
+	        	 StudentException exception=new StudentException("Student Not Present By Given Id");
+	        	 throw exception;
+	         }
+	          
+		return student;
+	}
+
+	@Override
+	public List<Student> getAllStudent() throws StudentException {
+		  List<Student> list=null;
+		EntityManager em=	EMUtility.provideEntityManager();
+	   
+	 String jpql="Select s  from Student s";
+	 
+	  Query query=em.createQuery(jpql);
+            list= query.getResultList();
+		
+	  
+	  if(list==null) {
+		  StudentException exception=new StudentException("Student Database is Empty......");
+		  throw exception;
+	  }
+	  
+	  
+		return list;
+	}
+
+	@Override
+	public String insertCollege(College college) throws CollegeException {
+	    String result="College Is Not Insert Due To Some Error.....";
+		 EntityManager em=EMUtility.provideEntityManager();
+		 
+		 String jpql="Select c from College c where collageName=?1 AND collageAddress=?2";
+		 Query query=em.createQuery(jpql);
+		 query.setParameter(1, college.getCollageName());
+		 query.setParameter(2,college.getCollageAddress());
+		 
+		 try {
+
+			 College college2=(College) query.getSingleResult();
+		   result="College Is already Present.....";
+		 } catch (Exception e) {
+			
+			 em.getTransaction().begin();
+			 			 
+			 em.persist(college);
+			 			 
+			 em.getTransaction().commit();
+		}
+		 em.close();
+		return result;
+	}
+
+	@Override
+	public List<College> getAllCollege() throws CollegeException {
+   EntityManager em=EMUtility.provideEntityManager();
+		 List<College> colleges=null;
+		 
+		 String jpql="select c from College c";
+		 Query query=em.createQuery(jpql);
+		 colleges=query.getResultList();
+		 
+		 
+		 if(colleges==null) {
+			 
+			 CollegeException collegeException=new CollegeException("College Is Not Fund In DataBase");
+            throw collegeException;			 
+		 }
+		
+	
+		 return colleges;
+	}
+
+	@Override
+	public College getCollegeBycollageId(int collageId) throws CollegeException {
+		College college=null;
+		
+		
+		try {
+
+	 		EntityManager em= EMUtility.provideEntityManager();
+	 		  college=	em.find(College.class,collageId);
+			
+		} catch (Exception e) {
+			  CollegeException collegeException=new CollegeException("College Is Not Found By Given College Id");
+	   		   throw collegeException; 	
+		}
+
+ 	
+
+		return college;
+	}
+
+	@Override
+	public String addCollegeExisting(int collegeId, int roll) throws CollegeException, StudentException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String updateStudent(int roll) throws StudentException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String updateCollege(int collegeid) throws CollegeException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void getStudentDetailbyCollegeId(int collegeid) throws CollegeException {
+		// TODO Auto-generated method stub
+		 
+	}
+
+	@Override
+	public College getCollegeDetailbyRoll(int roll) throws StudentException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void CollegeAndStudent(int collegeid, Student student) throws CollegeException, StudentException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+}

@@ -1,0 +1,22 @@
+package USECASE;
+
+import javax.persistence.EntityManager;
+
+import Utility.EMUTILITY;
+
+public class AddingEmployeeExsistingDepartment {
+
+	public static void main(String[] args) {
+	 
+	EntityManager em=EMUTILITY.provideEntityManager();
+	
+		
+	System.out.println("Enter Department Id");
+	 	
+		
+		
+		
+		
+		
+	}
+}

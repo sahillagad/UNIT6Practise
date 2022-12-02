@@ -1,0 +1,121 @@
+package Dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import Bean.Employee;
+import Exception.EmployeeException;
+import Utility.EMUtility;
+
+public class EmployeeDaoImpl implements EmployeeDao{
+
+	@Override
+	public List<Employee> getAllEmployees() throws EmployeeException {
+		List<Employee>  employees=null;      
+		EntityManager em=EMUtility.provideEntityManager();
+		
+              
+              String jpql="SELECT E From Employee E";
+              Query query=em.createQuery(jpql);
+              employees = query.getResultList();
+               
+              if(employees==null) {
+            	  EmployeeException employeeException=new EmployeeException("Employee DataBase Is Empty");
+               	  throw employeeException;
+              }
+               
+              em.close();
+               return employees;
+	}
+
+	@Override
+	public List<Employee> getEmployeesByAddress(String address) throws EmployeeException {
+
+		  EntityManager em=EMUtility.provideEntityManager();
+		
+		List<Employee> employees=null;
+		
+		String jpql="Select E From Employee E where E.address=?1";
+		
+		
+		 Query query= em.createQuery(jpql);
+		 query.setParameter(1,address);
+		  employees=  query.getResultList();
+		  
+          if(employees==null) {
+        	  EmployeeException employeeException=new EmployeeException("Given Input Not Result in Found Employee DataBase");
+           	  throw employeeException;
+          }
+		em.close();
+		
+		return employees;
+	}
+
+	@Override
+	public List<Employee> getAllEmployeeWithRangeSalary(int startSalary, int endSalary) throws EmployeeException {
+		EntityManager em=EMUtility.provideEntityManager();
+		List<Employee> employees=null;
+	    String jpql="Select E From Employee E Where E.salary>=?1 AND   E.salary<=?2";	
+	   
+		Query query=em.createQuery(jpql);
+	     query.setParameter(1, startSalary);
+	     query.setParameter(2,endSalary);
+		employees=query.getResultList();
+		
+		  
+        if(employees==null) {
+      	  EmployeeException employeeException=new EmployeeException("Given Input Not Result in Found Employee DataBase");
+       	  throw employeeException;
+        }
+		
+		return employees;
+		em.close();
+	}
+
+	@Override
+	public Object[] getEmployeeNameAndSalary(int empId) throws EmployeeException {
+		Object[] objects=null;
+		
+		EntityManager  em=EMUtility.provideEntityManager();
+	 
+		String jpql="Select E.name,E.address from Employee E Where E.empld=?1";
+	       Query query=em.createQuery(jpql);
+          query.setParameter(1, empId);	    
+           Object obj= query.getSingleResult(); 
+           objects=(Object[]) obj;
+ 		  
+           if(objects==null) {
+         	  EmployeeException employeeException=new EmployeeException("Given Input Not Result in Found Employee DataBase");
+         	  
+           }
+    
+       	em.close();
+		return  objects;
+	
+	}
+
+	@Override
+	public int getEmployeeSalaryById(int empId) throws EmployeeException {
+		EntityManager  em=EMUtility.provideEntityManager();
+		 
+		String jpql="Select E.salary from Employee E Where E.empld=?1";
+	       Query query=em.createQuery(jpql);
+          query.setParameter(1, empId);	    
+             int salary=(int)query.getSingleResult();
+             
+             if(salary==0) {
+           	  EmployeeException employeeException=new EmployeeException("Given Input Not Result in Found Employee DataBase");
+           	  throw employeeException;
+             }
+             
+         	em.close();
+		return salary;
+	}
+	
+	
+	
+	
+
+}

@@ -1,0 +1,22 @@
+package Usecase;
+
+import Dao.AdminDao;
+import Dao.AdminDaoImpl;
+import Exception.CollegeException;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		
+      AdminDao dao=new AdminDaoImpl();
+      try {
+		dao.getCollegeBycollageId(3);
+	} catch (CollegeException e) {
+		// TODO Auto-generated catch block
+	System.out.println(e.getMessage());
+	}
+		
+		
+		
+	}
+}

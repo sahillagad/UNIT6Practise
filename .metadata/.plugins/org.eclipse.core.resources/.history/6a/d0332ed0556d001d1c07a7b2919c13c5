@@ -1,0 +1,13 @@
+import javax.persistence.EntityManager;
+
+import Bean.Address;
+import Bean.Student;
+import Utility.EMUtility;
+
+public class Usecase {
+
+	public static void main(String[] args) {
+	EntityManager em=	EMUtility.provideEntityManager();
+	
+	}
+}

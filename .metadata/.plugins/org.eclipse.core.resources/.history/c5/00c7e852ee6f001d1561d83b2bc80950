@@ -1,0 +1,36 @@
+package DAY5_Operator;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class BitwiseOperator {
+
+	public static void main(String[] args) {
+		
+
+		int a=5;
+		int b=6;
+		int c=a &b;
+		System.out.println(c);
+		
+		
+		
+	 char d='y';
+	 System.out.println(d=='y');
+	 
+		
+//		
+//		int num=5;
+//		int num1=6;
+//	Integer.MIN_VALUE
+//		System.out.println(num == num1);
+//
+//		HashMap<Integer, Integer> hashMap=new HashMap<>();
+//
+//		hashMap.get(hashMap)
+//		hashMap.get(4).
+//		hashMap.replace(null, null)
+	
+		
+	}
+}

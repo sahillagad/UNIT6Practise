@@ -1,0 +1,27 @@
+package Bean;
+
+public class SalaryEmployee {
+
+	 private int salary;
+
+	public SalaryEmployee(int salary) {
+		super();
+		this.salary = salary;
+	}
+
+	public int getSalary() {
+		return salary;
+	}
+
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+
+	@Override
+	public String toString() {
+		return "SalaryEmployee [salary=" + salary + "]";
+	}
+	 
+	 
+	 
+}

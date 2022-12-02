@@ -1,0 +1,46 @@
+package Usecase;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import javax.persistence.EntityManager;
+
+import Bean.DrivingLicence;
+import Bean.Person;
+import Utility.EMUtility;
+
+public class DrivingLicence1 {
+		public static void main(String[] args) {
+        
+			Person person=new Person();
+			person.setName("Ram");
+			person.setAddress("Mumbai");
+			person.setAge(21);
+			person.setGender("Male");
+		
+			String DateOfBirth="04/12/2000";
+            DateTimeFormatter formatter=DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			LocalDate date=LocalDate.parse(DateOfBirth, formatter);
+			person.setDateBirth(date);
+			
+			 
+			DrivingLicence drivingLicence=new DrivingLicence();
+			drivingLicence.setPerson(person);
+			drivingLicence.setStateName("MH");
+			LocalDate date2=LocalDate.now();
+			drivingLicence.setDateOFIssue(date2);
+			
+			LocalDate date3=LocalDate.now().plusYears(3);
+			drivingLicence.setExpirationDate(date3);
+			
+			person.setDrivingLicence(drivingLicence);
+			
+		 EntityManager em=	EMUtility.provideEntityManager();
+		em.getTransaction().begin();	
+			
+		em.persist(person);
+			
+		em.getTransaction().commit();
+		em.close();
+		}	
+}

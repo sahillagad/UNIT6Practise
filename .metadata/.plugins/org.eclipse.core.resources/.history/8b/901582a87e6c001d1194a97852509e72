@@ -1,0 +1,45 @@
+package Usecase;
+
+import java.util.Scanner;
+
+public class ADDVechical {
+
+	public static void main(String[] args) {
+		
+		
+		
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter Person Name");
+		
+		System.out.println("Enter Person ");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+}

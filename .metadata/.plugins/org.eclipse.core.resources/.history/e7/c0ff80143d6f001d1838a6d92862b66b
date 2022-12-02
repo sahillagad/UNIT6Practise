@@ -1,0 +1,63 @@
+package Dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import Bean.Address;
+import Bean.Employee;
+import Exception.EmployeeException;
+import Utility.EMUtility;
+
+public class EmployeeDaoImpl implements EmployeeDao{
+
+	@Override
+  public List<Employee> getaAllEmployee() throws EmployeeException {
+		 List<Employee> employees=null;
+		
+	 EntityManager em=	EMUtility.provideEntityManager();
+	
+	 String jpql="select E from Employee E";
+	 Query query=em.createQuery(jpql);
+	 employees= query.getResultList();
+	 
+	 
+	 return employees;
+	}
+
+	@Override
+	public List<Employee> getEmployeeBYAddress(Address address) throws EmployeeException {
+	
+	    EntityManager em=	EMUtility.provideEntityManager();
+     
+		String jpql="Select E from Employee E Where ";
+		
+		
+		
+		
+		
+		
+	}
+
+	@Override
+	public List<Employee> getAllEmployeeWithRangeSalary(int startSalary, int endSalary) throws EmployeeException {
+		
+		return null;
+	}
+
+	@Override
+	public Object[] getEmployeeNameAndSalary(int emplId) throws EmployeeException {
+		
+		return null;
+	}
+
+	@Override
+	public int getEmployeeSalaryById(int empl) throws EmployeeException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
+	
+}

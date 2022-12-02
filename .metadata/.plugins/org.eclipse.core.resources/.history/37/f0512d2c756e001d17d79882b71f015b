@@ -1,0 +1,14 @@
+package USECASE;
+
+import javax.persistence.Embedded;
+import javax.persistence.EntityManager;
+
+import Utility.EMUtility;
+
+public class Main {
+
+	
+	public static void main(String[] args) { 
+ EntityManager entityManager=		EMUtility.provideEntityManager();
+	}
+}

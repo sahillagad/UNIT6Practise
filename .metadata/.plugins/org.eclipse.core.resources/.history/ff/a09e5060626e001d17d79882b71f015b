@@ -1,0 +1,62 @@
+package USECASE;
+
+import java.util.List;
+import java.util.Scanner;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import BEAN.Employee;
+import Utility.EMUTILITY;
+
+public class GetAllEmployee_Way2 {
+
+	public static void main(String[] args) {
+	   EntityManager em=EMUTILITY.provideEntityManager();	
+		
+	   Scanner sc=new Scanner(System.in);
+	   
+	   System.out.println("Enter Department Name");
+	   String depName= sc.next();
+	   
+		
+		
+	   String jpql="SELECT employees  from Department where name=?1";
+	   Query query=em.createQuery(jpql);
+	    query.setParameter(1, depName);
+	    
+	    
+	    List<Employee> employees=query.getResultList();
+	    
+	    for(Employee empl:employees) {
+	    	
+	       	System.out.println("Id     : "+empl.getEmpID());
+	    	System.out.println("Name   : "+empl.getName());
+	    	System.out.println("Salary : "+empl.getSalary());
+	    	System.out.println("-----------------------------");
+	    	
+	    	
+	    	
+	    	
+	    }
+	    
+	    
+	  
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

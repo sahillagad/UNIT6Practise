@@ -1,0 +1,101 @@
+package  Bean;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Employee {
+	
+	   @Id
+	   @GeneratedValue(strategy = GenerationType.IDENTITY)
+	   private int emplD;
+	   private String name;
+	   private String gender;
+	   private int salary;
+	   
+	   @Embedded
+	   @ElementCollection(fetch = FetchType.EAGER)
+	   private Set<Address> addresses=new HashSet<>();
+	   
+	   
+	   
+	   
+
+	public Employee() {
+		super();
+	}
+
+	public Employee(int emplD, String name, String gender, int salary, Set<Address> addresses) {
+		super();
+		this.emplD = emplD;
+		this.name = name;
+		this.gender = gender;
+		this.salary = salary;
+		this.addresses = addresses;
+	}
+
+	public int getEmplD() {
+		return emplD;
+	}
+
+	public void setEmplD(int emplD) {
+		this.emplD = emplD;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public int getSalary() {
+		return salary;
+	}
+
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+
+	public Set<Address> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(Set<Address> addresses) {
+		this.addresses = addresses;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [emplD=" + emplD + ", name=" + name + ", gender=" + gender + ", salary=" + salary
+				+ ", addresses=" + addresses + "]";
+	}
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	
+	    
+
+}

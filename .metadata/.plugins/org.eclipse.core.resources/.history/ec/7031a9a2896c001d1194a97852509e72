@@ -1,0 +1,49 @@
+package Usecase;
+
+import java.util.Scanner;
+
+import javax.persistence.EntityManager;
+
+import Utility.EMUtility;
+
+public class ADDVechical {
+
+	public static void main(String[] args) {
+		
+ 	 EntityManager entityManager=	EMUtility.provideEntityManager();
+		
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter Person Name");
+		
+		System.out.println("Enter Person ");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+}

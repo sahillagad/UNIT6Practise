@@ -1,0 +1,10 @@
+package Usecase;
+
+import Dao.EmployeeDao;
+import Dao.EmployeeDaoImpl;
+
+public class GetEmployeeById {
+
+	EmployeeDao dao=new EmployeeDaoImpl();
+	dao.getAllAddress(id);
+}

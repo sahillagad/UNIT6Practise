@@ -1,0 +1,28 @@
+package Usecase;
+
+import java.util.Scanner;
+
+import Dao.AdminDao;
+import Dao.AdminDaoImpl;
+import Exception.CourseException;
+
+public class getCourseByCourseId {
+	
+	public static void main(String[] args) {
+		
+	
+	Scanner sc=new Scanner(System.in);
+	
+	System.out.println("Enter Course Id");
+	 int courseId=  sc.nextInt();
+	
+	AdminDao dao=new AdminDaoImpl();
+	try {
+		dao.getCourse(courseId);
+	} catch (CourseException e) {
+	
+	System.out.println(e.getMessage());
+	}
+	
+	}
+}

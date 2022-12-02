@@ -1,0 +1,77 @@
+package USECASE;
+
+import java.util.Scanner;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import Bean.DepartmentDate;
+import Utility.EMUtility;
+
+public class AddingDepartment {
+	
+	
+	public static void main(String[] args) {
+		
+	  EntityManager em=EMUtility.provideEntityManager();	
+	
+	  Scanner sc=new Scanner(System.in);
+		
+	  System.out.println("Enter Department Name");
+	  String name= sc.next();
+	  
+	  
+	  
+	  System.out.println("Enter Department Location");
+	 String location=sc.next();
+
+	 String jpql="Select d from Department d where d.depName=?1 AND d.depLocation=?2";
+	 
+	 Query query=em.createQuery(jpql);
+	 query.setParameter(1, name);
+	 query.setParameter(2, location);
+	 
+	 try {
+	
+		 DepartmentDate depart1=(DepartmentDate)query.getSingleResult();
+		 
+		 
+		 System.out.println("Department Already Prescent.....");
+		 
+		 
+	} catch (Exception e) {
+
+		 
+		 DepartmentDate d1=new DepartmentDate(name, location);
+			
+		 em.getTransaction().begin();
+			
+		
+		 em.persist(d1);
+	 		
+			
+			
+			
+		
+		 em.getTransaction().commit();
+			
+			em.close();
+	
+	}
+	 
+	
+	 
+	 
+	 
+	 
+	 
+
+		
+	}
+	
+	
+	
+	
+	
+
+}

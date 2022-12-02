@@ -1,0 +1,53 @@
+package DAY5_Operator;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class BitwiseOperator {
+
+	public static void main(String[] args) {
+
+		 String[] arr= {"SSSSEEEECCCCEECCCC", "CCCCCSSSSEEECCCCSS","SSSSSEEESSCCCCCCCS","EESSSSCCCCCCSSEEEE"};
+		 
+		String s= "SSSSEEEECCCCEECCCC";
+		 
+	int i=0;	
+	while(i<s.length()) {
+		
+		if(s.charAt(i)=='C') {
+	      int c=0;
+			while(true) {
+				i++;
+			if(	s.charAt(i)=='C') {
+				
+				c++;
+				
+				
+			}
+			if(	s.charAt(i)!='C') {
+				
+				
+				break;
+				
+			}
+				
+				
+				
+			}
+	 	
+	
+			System.out.println(c);		
+		}
+	
+		i++;
+	
+		
+		
+		
+	}
+		 
+		
+ 
+		
+	}
+}

@@ -1,0 +1,62 @@
+package Bean;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Address {
+
+	 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private String state;
+	private String city;
+	private String gender;
+	private int salary;
+	public Address(String state, String city, String gender, int salary) {
+		super();
+		this.state = state;
+		this.city = city;
+		this.gender = gender;
+		this.salary = salary;
+	}
+	public Address() {
+		super();
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public int getSalary() {
+		return salary;
+	}
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+	@Override
+	public String toString() {
+		return "Address [state=" + state + ", city=" + city + ", gender=" + gender + ", salary=" + salary + "]";
+	}
+	
+	
+	
+	
+	
+	 
+}

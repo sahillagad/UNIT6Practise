@@ -1,0 +1,28 @@
+package Usecase;
+
+import Bean.Employee;
+import Dao.EmployeeDao;
+import Dao.EmployeeDaoImpl;
+import Exception.EmployeeException;
+
+public class InserEmployee {
+	
+	public static void main(String[] args) {
+		
+		Employee employee=new Employee("Rani","Mumbai", 45000);
+		EmployeeDao dao=new EmployeeDaoImpl();
+		try {
+		 	dao.insertEmployee(employee);
+		} catch (EmployeeException e) {
+		
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+	}
+
+}

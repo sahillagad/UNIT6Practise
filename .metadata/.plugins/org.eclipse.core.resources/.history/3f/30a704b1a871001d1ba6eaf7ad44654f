@@ -1,0 +1,20 @@
+package Usecase;
+
+import Bean.ContractualEmployee;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		
+		ContractualEmployee contractualEmployee=new ContractualEmployee(0, 0)
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

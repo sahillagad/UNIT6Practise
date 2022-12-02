@@ -1,0 +1,35 @@
+package USECASE;
+
+import java.util.List;
+import java.util.Scanner;
+
+import javax.persistence.EntityManager;
+
+import Bean.Department1;
+import Bean.Employee1;
+import Utility.EMUtility;
+
+public class ListAllEmployee {
+
+	public static void main(String[] args) {
+		
+		EntityManager em=EMUtility.provideEntityManager();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Department Id");
+		int ID=sc.nextInt();
+		
+		Department1 department1=  em.find(Department1.class,ID );
+		
+	 List<Employee1> employee1s=	department1.getDepart();
+		
+	 for(Employee1 empl:employee1s) {
+		 
+		 System.out.println(empl.getEname());
+	 }
+		
+		
+		
+		
+		
+	}
+}

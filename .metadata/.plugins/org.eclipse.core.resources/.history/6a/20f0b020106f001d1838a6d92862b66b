@@ -1,0 +1,80 @@
+package Entity;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+
+@Entity
+public class PhoneNumber {
+ 
+	@Id
+	private int phoneId;
+	private String phoneNumber;
+	@Enumerated(EnumType.STRING)
+	private PhoneType phoneType;
+
+	private  int userId;
+
+	public PhoneNumber(int phoneId, String phoneNumber, PhoneType phoneType, int userId) {
+		super();
+		this.phoneId = phoneId;
+		this.phoneNumber = phoneNumber;
+		this.phoneType = phoneType;
+		this.userId = userId;
+	}
+
+	public PhoneNumber() {
+		super();
+	}
+
+	public PhoneNumber(String phoneNumber, PhoneType phoneType, int userId) {
+		super();
+		this.phoneNumber = phoneNumber;
+		this.phoneType = phoneType;
+		this.userId = userId;
+	}
+
+	public int getPhoneId() {
+		return phoneId;
+	}
+
+	public void setPhoneId(int phoneId) {
+		this.phoneId = phoneId;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public PhoneType getPhoneType() {
+		return phoneType;
+	}
+
+	public void setPhoneType(PhoneType phoneType) {
+		this.phoneType = phoneType;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	@Override
+	public String toString() {
+		return "PhoneNumber [phoneId=" + phoneId + ", phoneNumber=" + phoneNumber + ", phoneType=" + phoneType
+				+ ", userId=" + userId + "]";
+	}
+
+	
+	
+	
+	
+}

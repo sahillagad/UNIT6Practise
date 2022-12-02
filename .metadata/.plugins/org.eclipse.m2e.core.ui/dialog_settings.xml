@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="C:\Users\SAHIL LAGAD\Documents\UNIT6(SB201)\SB201Day6AssignmentQuestion_1"/>
+			<item value="C:\Users\SAHIL LAGAD\Documents\UNIT6(SB201)\SB201_C2_PROBLEM3"/>
+			<item value="C:\Users\SAHIL LAGAD\Documents\UNIT6(SB201)\SB201Day6AssignmentQuestion_1\src\main\java"/>
+			<item value="C:\Users\SAHIL LAGAD\Documents\UNIT6(SB201)\SB201Day5Assignment"/>
+			<item value="C:\Users\SAHIL LAGAD\Documents\UNIT6(SB201)\StateBankOfIndia"/>
+			<item value="C:\Users\SAHIL LAGAD\Documents\UNIT6(SB201)\Assignment_Day3"/>
+			<item value="C:\Users\SAHIL LAGAD\Documents\UNIT6(SB201)\BookLibrary"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="All Catalogs"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+			<item value="com.masai"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="RatanSirDay7.1"/>
+			<item value="RatanSirDay7"/>
+			<item value="SB201Day6AssignmentQuestion_2"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.wizards.CustomArchetypeDialog">
+	</section>
+</section>

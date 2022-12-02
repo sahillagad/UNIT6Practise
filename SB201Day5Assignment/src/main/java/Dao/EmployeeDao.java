@@ -1,0 +1,19 @@
+package Dao;
+
+import Bean.Address;
+import Bean.Employee;
+
+public interface EmployeeDao {
+
+	     
+	public void getAllEmployee();
+	public void getEmployeeById(int emplId);
+	public void insertEmployee(Employee employee );
+	public void updateEmployee(int EmployeeId);
+	public void addAddress(int EmployeeId,Address address);
+	public void getEmployeeByName(String name);
+	public void getAllAddress(int employeeId);
+	
+	
+	
+}

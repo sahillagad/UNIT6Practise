@@ -1,0 +1,24 @@
+import javax.persistence.EntityManager;
+
+import Bean.Address;
+import Bean.Student;
+import Utility.EMUtility;
+
+public class Usecase {
+
+	public static void main(String[] args) {
+	EntityManager em=	EMUtility.provideEntityManager();
+		
+	Address address=new Address("mumbai", "MH","421301");
+    Student student=new Student("sahil",765, address);
+	 
+	em.getTransaction().begin();	
+		
+	em.persist(student);         	
+	   
+		
+	em.getTransaction().begin();	
+	
+	em.close();
+	}
+}

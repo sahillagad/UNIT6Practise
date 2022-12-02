@@ -1,0 +1,55 @@
+package USECASE;
+
+import javax.persistence.EntityManager;
+
+import Bean.Department1;
+import Bean.Employee1;
+import Utility.EMUtility;
+
+public class Usecase {
+
+	public static void main(String[] args) {
+		
+		EntityManager em=EMUtility.provideEntityManager();
+		
+		Department1 department1=new Department1();
+		department1.setDepName("Marketing");
+		department1.setDepLocation("Mumbai");
+		
+		
+		
+		Employee1 e1=new Employee1();
+		e1.setEname("Pramila");
+		e1.setSalary(67000);
+	   e1.setDepartment(department1);
+		
+	   
+	   Employee1 e2=new Employee1();
+	   e2.setEname("Bhaskar");
+	   e2.setSalary(50000);
+	   e2.setDepartment(department1);
+	   
+	   
+	   department1.getDepart().add(e1);
+	   department1.getDepart().add(e2);
+	   
+	   
+	   em.getTransaction().begin();
+	   
+	   
+	   em.persist(e2);
+	   em.persist(e1);
+	   
+	   
+	   em.getTransaction().commit();
+	   
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

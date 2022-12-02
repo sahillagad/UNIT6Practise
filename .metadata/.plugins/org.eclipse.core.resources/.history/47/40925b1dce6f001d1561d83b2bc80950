@@ -1,0 +1,16 @@
+package DAY5_Operator;
+
+public class BitwiseOperator {
+
+	public static void main(String[] args) {
+		
+		
+		int num=5;
+		int num1=6;
+		
+		System.out.println(num == num1);
+		
+		
+		
+	}
+}

@@ -1,0 +1,9 @@
+package Usecase;
+
+public class TimeInstructor {
+
+	public PartTimeInstructor(String string, int i, int j, String string2) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

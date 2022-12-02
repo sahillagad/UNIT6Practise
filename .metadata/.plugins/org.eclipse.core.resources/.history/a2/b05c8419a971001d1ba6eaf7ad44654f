@@ -1,0 +1,27 @@
+package Usecase;
+
+import Bean.ContractualEmployee;
+import Bean.SalaryEmployee;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		
+	ContractualEmployee contractualEmployee=new ContractualEmployee();
+	contractualEmployee.setName("Ram");
+	contractualEmployee.setNoOfWorkingDays(3);
+	contractualEmployee.setCostPerDay(3000);
+	
+	SalaryEmployee employee=new SalaryEmployee();
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

@@ -1,0 +1,33 @@
+package Usecase;
+
+import javax.persistence.EntityManager;
+
+import Bean.Phone;
+import Bean.User;
+import Utility.EMUtility;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		
+		
+		
+		EntityManager em= EMUtility.ProvideEntityManager();
+		
+		em.getTransaction().begin();
+		
+		User user=new User();
+		user.setUsername("Sahil");
+		user.getPhoneList().add(new Phone("Home", "987654321", 1));
+		user.getPhoneList().add(new Phone("Office", "543654321", 1));
+		user.getPhoneList().add(new Phone("Home", "887654321", 1));  
+		
+		
+		
+		em.persist(user);
+		
+		em.getTransaction().commit();
+		
+	}
+	
+}

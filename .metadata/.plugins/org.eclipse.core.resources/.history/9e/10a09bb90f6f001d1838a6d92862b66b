@@ -1,0 +1,18 @@
+package Usecase;
+
+import javax.persistence.EntityManager;
+
+import Utility.EMUtility;
+
+public class Demo {
+  
+	            public static void main(String[] args) {
+					
+	            	EntityManager em=EMUtility.provideEntityManager();
+	            	System.out.println(em);
+	            	
+	            	
+	            	
+				}
+	      
+}

@@ -1,0 +1,13 @@
+package Usecase;
+
+public class GetEmployeeAddress {
+ 
+	public static void main(String[] args) {
+		
+		
+		
+		
+		
+	}
+	
+}

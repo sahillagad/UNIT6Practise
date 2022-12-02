@@ -1,0 +1,23 @@
+package Usecase;
+
+import javax.persistence.EntityManager;
+
+import Dao.Customer;
+import Utility.EMUtility;
+
+public class GETCustomer {
+public static void main(String[] args) {
+	
+ EntityManager em=	EMUtility.provideEntityManager();
+	
+          Customer customer=  em.find(Customer.class,1);	
+	
+          System.out.println(customer);
+ 
+	
+          Customer customer1=  em.find(Customer.class,2);	
+      	
+          System.out.println(customer1);
+	
+}
+}

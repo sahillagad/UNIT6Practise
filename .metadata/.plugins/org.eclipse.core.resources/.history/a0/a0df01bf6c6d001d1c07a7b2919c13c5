@@ -1,0 +1,28 @@
+package Usecase;
+
+import javax.persistence.EntityManager;
+
+import Bean.Add;
+import Bean.Student;
+import Utility.EMUtility;
+
+public class Adding {
+	public static void main(String[] args) {
+		
+	 EntityManager em=	EMUtility.provideEntityManager();
+	
+	 Add a1=new Add("Mumbai","MH","421301");
+	 Add a2=new Add("Pune","MH","423064");
+	 Student student=new Student();
+	 student.setName("Sahil");
+	 student.setMarks(578);
+	 student.getAdds().add(a1);
+	 student.getAdds().add(a2);
+	 
+	 em.getTransaction().begin();
+		
+	         em.persist(student);
+
+	 em.getTransaction().commit();
+	} 
+}

@@ -1,0 +1,85 @@
+package Bean;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Order {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int orderId;
+	private String ProductName;
+	private double ProductPrice;
+	
+	@ManyToOne
+	List<Customer> customers=new ArrayList<>();
+
+	public Order(int orderId, String productName, double productPrice, List<Customer> customers) {
+		super();
+		this.orderId = orderId;
+		ProductName = productName;
+		ProductPrice = productPrice;
+		this.customers = customers;
+	}
+
+	public Order() {
+		super();
+	}
+
+	public Order(String productName, double productPrice, List<Customer> customers) {
+		super();
+		ProductName = productName;
+		ProductPrice = productPrice;
+		this.customers = customers;
+	}
+
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+
+	public String getProductName() {
+		return ProductName;
+	}
+
+	public void setProductName(String productName) {
+		ProductName = productName;
+	}
+
+	public double getProductPrice() {
+		return ProductPrice;
+	}
+
+	public void setProductPrice(double productPrice) {
+		ProductPrice = productPrice;
+	}
+
+	public List<Customer> getCustomers() {
+		return customers;
+	}
+
+	public void setCustomers(List<Customer> customers) {
+		this.customers = customers;
+	}
+
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", ProductName=" + ProductName + ", ProductPrice=" + ProductPrice
+				+ ", customers=" + customers + "]";
+	}
+ 	
+	
+	
+	
+	
+}

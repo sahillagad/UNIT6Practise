@@ -1,0 +1,33 @@
+package Usecase;
+
+import javax.persistence.EntityManager;
+
+import Bean.DrivingLicence;
+import Bean.Person;
+import Utility.EMUtility;
+
+public class GetPerson {
+
+	public static void main(String[] args) {
+   EntityManager em=		EMUtility.provideEntityManager();
+		
+		
+   Person person=  em.find(Person.class, 1);
+   System.out.println(person.getName());
+   
+   DrivingLicence drivingLicence=em.find(DrivingLicence.class,1);
+   System.out.println(drivingLicence.getDrivingLicenceNumber());
+   
+		
+		
+   
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+}

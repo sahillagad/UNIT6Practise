@@ -1,0 +1,193 @@
+package Dao;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import Bean.Address;
+import Bean.Employee;
+import Utility.EMUtility;
+
+public class EmployeeDaoImpl implements EmployeeDao{
+
+	@Override
+	public void getAllEmployee() {
+	
+		 
+		EntityManager em= EMUtility.provideEntityManager();
+		
+		String jpql="Select E from Employee E";
+		Query query=em.createQuery(jpql);
+		
+		List<Employee> employees=query.getResultList();
+		
+		for(Employee empl:employees) {
+			System.out.println("Id         : "+empl.getEmpID());
+			System.out.println("Name   : "+empl.getName());
+			System.out.println("Gender : "+empl.getGender());
+			System.out.println("Salary   : "+empl.getSalary());
+			System.out.println("-----------------------------------------");
+		}
+		
+		
+		 em.close();
+		
+	}
+
+	@Override
+	public void getEmployeeById(int emplId) {
+	
+		
+	 EntityManager em=	EMUtility.provideEntityManager();
+		
+	 Employee empl= em.find(Employee.class, emplId);
+		if(empl!=null) {
+		System.out.println("Id         : "+empl.getEmpID());
+		System.out.println("Name   : "+empl.getName());
+		System.out.println("Gender : "+empl.getGender());
+		System.out.println("Salary   : "+empl.getSalary());
+		System.out.println("-----------------------------------------");
+		
+		}
+		else {
+			System.out.println("Employee is not Present By Given Id");
+		}
+		 em.close();
+	}
+
+	@Override
+	public void insertEmployee(Employee employee) {
+		
+	 EntityManager em=EMUtility.provideEntityManager();
+		
+	 em.getTransaction().begin();
+
+	 em.persist(employee);
+	 
+	 em.getTransaction().commit();
+
+	 em.close();
+	}
+
+	@Override
+	public void updateEmployee(int EmployeeId) {
+		Scanner sc=new Scanner(System.in);
+		
+		EntityManager em=EMUtility.provideEntityManager();
+		Employee employee=em.find(Employee.class, EmployeeId);
+		
+
+
+		if(employee!=null) {
+			em.getTransaction().begin();
+			System.out.println("Enter 1 For Update Name"
+				+ "\nEnter 2 For Update Gender"
+				+ "\nEnter 3 For Update Salary");
+	 
+		int x= sc.nextInt();
+		if(x==1) {
+			System.out.println("Enter New Name");
+			String name= sc.next();
+			employee.setName(name);
+			
+		}
+		if(x==2) {
+			System.out.println("Enter Update Gender");
+			String gender=sc.next();
+			employee.setGender(gender);
+			
+		}
+		if (x==3) {
+			System.out.println("Enter Update Salary");
+			int salary=sc.nextInt();
+			employee.setSalary(salary);	
+		}
+		if(x>3) {
+			System.out.println("Please Give Proper Input..");
+		}
+		
+		em.getTransaction().commit();
+		System.out.println("Done..");
+		em.close();
+		}else {
+			
+			System.out.println("Employee is not Present By Given Id");
+			
+		}
+		
+		
+	}
+
+	@Override
+	public void addAddress(int EmployeeId,Address address) {
+	
+	 EntityManager em=	EMUtility.provideEntityManager();
+	 
+	 Employee employee=em.find(Employee.class, EmployeeId);
+	 
+	 em.getTransaction().begin();
+	 
+	 employee.getAddresses().add(address);
+	 System.out.println("Done");
+	 em.getTransaction().commit();
+	 
+	 em.close();
+	 
+	}
+
+	@Override
+	public void getEmployeeByName(String name) {
+		
+			EntityManager em=EMUtility.provideEntityManager();		
+		 
+			String jpql="Select E from Employee E where E.name=?1";
+			Query query=em.createQuery(jpql);
+			query.setParameter(1, name);
+			
+			List<Employee> employees=query.getResultList();
+			if(employees!=null) {
+			for(Employee empl:employees) {
+				System.out.println("Id         : "+empl.getEmpID());
+				System.out.println("Name   : "+empl.getName());
+				System.out.println("Gender : "+empl.getGender());
+				System.out.println("Salary   : "+empl.getSalary());
+				System.out.println("-----------------------------------------");
+			}
+			}
+			else {
+				System.out.println("Employee Not Found By Given Name");
+			}
+			
+			em.close();
+			
+	}
+/*
+ * 
+ * 	private String state;
+	private String city;
+	private String pincode;
+	private String type;
+ */
+
+
+	@Override
+	public void getAllAddress(int employeeId) {
+		EntityManager em= EMUtility.provideEntityManager();
+		
+		Employee employee= em.find(Employee.class,employeeId);
+		
+		Set<Address> addresses= employee.getAddresses();
+		
+		for(Address add:addresses) {
+			System.out.println("State : "+add.getState());
+			System.out.println("City   : "+add.getCity());
+			System.out.println("Pincode : "+add.getPincode());
+			System.out.println("Type      : "+add.getType()); 
+		}
+	}
+
+}

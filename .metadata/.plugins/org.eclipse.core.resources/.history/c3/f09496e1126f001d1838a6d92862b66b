@@ -1,0 +1,51 @@
+package Usecase;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import Entity.PhoneNumber;
+import Entity.User;
+import Utility.EMUtility;
+
+public class FindUserByName {
+
+	public static void main(String[] args) {
+		
+   EntityManager em=EMUtility.provideEntityManager();
+ 
+   String jpql="Select u from User u where u.userName=?1";
+ 
+   Query query=em.createQuery(jpql);
+   
+     User user=(User) query.getSingleResult();
+		
+     if(user!=null) {
+    	 
+    	 List<PhoneNumber> list=user.getPhoneNumbers();
+    	
+    	 System.out.println("User Id : "+user.getUserId());
+    	 System.out.println("User Name : +"+user.getUserName());
+    	 System.out.println("User Email Id : "+user.getEmailId());
+    	 System.out.println("----------------------------------------------------------");
+    	 
+    	  for(PhoneNumber number:list) {
+    		 
+    		  System.out.println("Phone Id : "+number.getPhoneId());
+    		  System.out.println("Phone Number : "+number.getPhoneNumber());
+    		  System.out.println("Phone Type : "+number.getPhoneType());
+    		  
+    		  System.out.println("-------*****-------");
+    			
+    	  }
+    	
+    	  System.out.println("----------------------------------------------------------");
+     }
+		
+		
+		
+		
+	}
+	
+}

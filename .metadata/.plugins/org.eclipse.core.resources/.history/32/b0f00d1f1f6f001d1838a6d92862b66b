@@ -1,0 +1,30 @@
+package Usecase;
+
+import javax.persistence.EntityManager;
+
+import com.mysql.cj.protocol.FullReadInputStream;
+
+import Entity.FullTimeInstructor;
+import Utility.EMUtility;
+
+public class Insert {
+
+	public static void main(String[] args) {
+		
+	 EntityManager em=	EMUtility.provideEntityManager();
+		
+ 
+	     FullTimeInstructor fullTimeInstructor=new FullTimeInstructor("Sahil", 50000,"Sahil@gamil.com");
+	     FullTimeInstructor fullTimeInstructor1=new FullTimeInstructor("Ram", 50000,"Ram@gamil.com");
+	     FullTimeInstructor fullTimeInstructor2=new FullTimeInstructor("Rani", 50000,"Rani@gamil.com");
+	     FullTimeInstructor fullTimeInstructor3=new FullTimeInstructor("Raj", 50000,"Raj@gamil.com");
+		
+		
+		  PartTimeInstructor partTimeInstructor=new ("Tom",3,200,"987654321");
+		  
+		
+	}
+ 
+ 
+	
+}

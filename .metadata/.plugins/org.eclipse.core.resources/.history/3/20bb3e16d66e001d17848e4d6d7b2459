@@ -1,0 +1,54 @@
+package Bean;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Phone {
+
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int poneId;
+	private String serviceProviderName;
+	private String locationServiceProvider;
+	public Phone(int poneId, String serviceProviderName, String locationServiceProvider) {
+		super();
+		this.poneId = poneId;
+		this.serviceProviderName = serviceProviderName;
+		this.locationServiceProvider = locationServiceProvider;
+	}
+	public Phone() {
+		super();
+	}
+	public Phone(String serviceProviderName, String locationServiceProvider) {
+		super();
+		this.serviceProviderName = serviceProviderName;
+		this.locationServiceProvider = locationServiceProvider;
+	}
+	public int getPoneId() {
+		return poneId;
+	}
+	public void setPoneId(int poneId) {
+		this.poneId = poneId;
+	}
+	public String getServiceProviderName() {
+		return serviceProviderName;
+	}
+	public void setServiceProviderName(String serviceProviderName) {
+		this.serviceProviderName = serviceProviderName;
+	}
+	public String getLocationServiceProvider() {
+		return locationServiceProvider;
+	}
+	public void setLocationServiceProvider(String locationServiceProvider) {
+		this.locationServiceProvider = locationServiceProvider;
+	}
+	@Override
+	public String toString() {
+		return "Phone [poneId=" + poneId + ", serviceProviderName=" + serviceProviderName + ", locationServiceProvider="
+				+ locationServiceProvider + "]";
+	}
+}

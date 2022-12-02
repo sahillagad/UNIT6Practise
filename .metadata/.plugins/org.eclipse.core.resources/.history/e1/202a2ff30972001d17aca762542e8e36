@@ -1,0 +1,13 @@
+package Usecase;
+
+import javax.persistence.EntityManager;
+
+import Bean.ContractualEmployee;
+import Bean.Employee;
+import Bean.SalaryEmployee;
+import Utility.EMUtility;
+
+public class Demo {
+
+
+}

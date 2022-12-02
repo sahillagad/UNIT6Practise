@@ -1,0 +1,40 @@
+package Usecase;
+
+import java.util.List;
+
+import Bean.College;
+import Bean.Student;
+import Dao.AdminDao;
+import Dao.AdminDaoImpl;
+
+public class getAllCollege {
+	
+	public static void main(String[] args) {
+		
+	AdminDao dao=new AdminDaoImpl();
+    
+	try {
+	  
+	 List< College> colleges=dao.getAllCollege();
+	
+	 for(College college:colleges) {
+		 
+		 System.out.println("College ID          :"+college.getCollageId());
+		 System.out.println("College Name    :"+college.getCollageName() );
+		 System.out.println("College Address :"+college.getCollageAddress());
+			int count=0;
+			for(Student stu:college.getStudents()) {
+				count=count+1;
+			}
+		  System.out.println("Number OF Student "+count);
+		  System.out.println("----------------------------------------------------------------");
+	 }
+	 
+		}
+		catch (Exception e) {
+  
+			System.out.println(e.getMessage());
+		}
+
+	}
+}

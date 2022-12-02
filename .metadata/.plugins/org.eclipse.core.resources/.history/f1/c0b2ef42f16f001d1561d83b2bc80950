@@ -1,0 +1,42 @@
+package DAY5_Operator;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class BitwiseOperator {
+
+	public static void main(String[] args) {
+
+		 String[] arr= {"SSSSEEEECCCCEECCCC", "CCCCCSSSSEEECCCCSS","SSSSSEEESSCCCCCCCS","EESSSSCCCCCCSSEEEE"};
+		 
+		 
+		 
+//		 for(int i=0;i<arr.length;i=i+1) {
+			 String s1="SSSSEEEECCCCEECCCC";         //arr[i];
+			 int notpad=Integer.MIN_VALUE;
+ 			 for(int j=0;j<s1.length();j=j+1) {
+              int count=0;
+			 if(s1.charAt(j)=='C') {
+				 count++; 
+				 for(int k=j+1;k<s1.length();k=k+1) {
+					  
+					  if((s1.charAt(k)=='C')  && (s1.charAt(k+1)=='C')) {
+						  count++;
+					  
+					 }
+				  }
+				 count++;
+			 }
+			 
+			 if(count>=notpad) {
+				 
+				 notpad=count;
+			 }
+				 
+		 }
+		 
+		System.out.println(notpad);
+ 
+		
+	}
+}

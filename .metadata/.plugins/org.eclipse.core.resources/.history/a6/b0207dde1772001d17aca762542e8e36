@@ -1,0 +1,27 @@
+package Usecase;
+
+import Bean.Department;
+import Bean.Employee;
+
+public class Demo {
+public static void main(String[] args) {
+	Employee employee=new Employee();
+	employee.seteName("Sahil");
+	employee.setSalary(50000);
+
+	
+	
+	
+ Department department=new Department();	
+	 department.setDepName("Sahil");
+	 department.setEmployee(employee);
+	 department.setLocation("Mumbai");
+	
+		employee.setDepartment(department);
+	
+	
+	
+	
+	
+}
+}

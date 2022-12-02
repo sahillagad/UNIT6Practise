@@ -1,0 +1,22 @@
+Hibernate: create table Department1 (depid integer not null auto_increment, depName varchar(255), primary key (depid)) engine=InnoDB
+Hibernate: create table Department1_Employee1 (Department1_depid integer not null, employees_eid integer not null) engine=InnoDB
+Hibernate: create table Employee1 (eid integer not null auto_increment, name varchar(255), salary double precision not null, primary key (eid)) engine=InnoDB
+
+Hibernate: alter table Department1_Employee1 drop index UK_miku62xe4l3ammsaqgbw7s4yv
+Hibernate: alter table Department1_Employee1 add constraint UK_miku62xe4l3ammsaqgbw7s4yv unique (employees_eid)
+Hibernate: alter table Department1_Employee1 add constraint FKhw8oe6ckmqorkusq00ggnhap7 foreign key (employees_eid) references Employee1 (eid)
+Hibernate: alter table Department1_Employee1 add constraint FKa4fg7e6tmte3lp2a7ks00ivej foreign key (Department1_depid) references Department1 (depid)
+
+Hibernate: insert into Employee1 (name, salary) values (?, ?)
+Hibernate: insert into Employee1 (name, salary) values (?, ?)
+Hibernate: insert into Employee1 (name, salary) values (?, ?)
+Hibernate: insert into Employee1 (name, salary) values (?, ?)
+
+Hibernate: insert into Department1 (depName) values (?)
+Hibernate: insert into Department1 (depName) values (?)
+Hibernate: insert into Department1 (depName) values (?)
+
+Hibernate: insert into Department1_Employee1 (Department1_depid, employees_eid) values (?, ?)
+Hibernate: insert into Department1_Employee1 (Department1_depid, employees_eid) values (?, ?)
+Hibernate: insert into Department1_Employee1 (Department1_depid, employees_eid) values (?, ?)
+Hibernate: insert into Department1_Employee1 (Department1_depid, employees_eid) values (?, ?)

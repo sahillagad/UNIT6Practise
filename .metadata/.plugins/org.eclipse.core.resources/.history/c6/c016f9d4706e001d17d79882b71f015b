@@ -1,0 +1,75 @@
+package Bean;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class CustomerBank {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	private int customerAccId;
+	private String customerName;
+	private String customerAdd;
+	private double balance;
+	public CustomerBank(int customerAccId, String customerName, String customerAdd, double balance) {
+		super();
+		this.customerAccId = customerAccId;
+		this.customerName = customerName;
+		this.customerAdd = customerAdd;
+		this.balance = balance;
+	}
+	public CustomerBank(String customerName, String customerAdd, double balance) {
+		super();
+		this.customerName = customerName;
+		this.customerAdd = customerAdd;
+		this.balance = balance;
+	}
+	public CustomerBank() {
+		super();
+	}
+	public int getCustomerAccId() {
+		return customerAccId;
+	}
+	public void setCustomerAccId(int customerAccId) {
+		this.customerAccId = customerAccId;
+	}
+	public String getCustomerName() {
+		return customerName;
+	}
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+	public String getCustomerAdd() {
+		return customerAdd;
+	}
+	public void setCustomerAdd(String customerAdd) {
+		this.customerAdd = customerAdd;
+	}
+	public double getBalance() {
+		return balance;
+	}
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+	@Override
+	public String toString() {
+		return "CustomerBank [customerAccId=" + customerAccId + ", customerName=" + customerName + ", customerAdd="
+				+ customerAdd + ", balance=" + balance + "]";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
